@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import TodoFeature from './features/Todo';
+import AlbumFeature from './features/Album';
+import { useEffect } from 'react';
+import productApi from './api/productApi';
+// import moduleName from 'react-rou'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const productList = await productApi.getAll({});
+            console.log(productList);
+        }
+
+        fetchProducts();
+        return;
+    }, [])
+    return (
+        <Router>
+            Home Page
+            <Route path='/todos'
+                component={TodoFeature}
+            />
+            <Route path='/album'
+                component={AlbumFeature}
+            />
+            Footer
+        </Router>
+    );
 }
 
 export default App;

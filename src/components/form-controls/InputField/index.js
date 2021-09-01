@@ -4,7 +4,8 @@ import { TextField } from '@material-ui/core';
 import { Controller } from 'react-hook-form';
 
 const InputField = ({ form, name, label, disable }) => {
-    const { control } = form;
+    const { control, formState } = form;
+
     return (
         <Controller
             name={name}
@@ -28,7 +29,6 @@ const InputField = ({ form, name, label, disable }) => {
                 />
             )}
         >
-            <TextField fullWidth />
         </Controller>
     )
 }

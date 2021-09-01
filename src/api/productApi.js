@@ -15,7 +15,7 @@ const productApi = {
         return {
             data: productList,
             pagination: {
-                page: params._pages,
+                page: params._page,
                 limit: params._limit,
                 total: count
             }

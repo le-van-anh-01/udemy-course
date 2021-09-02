@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import { decrease, increase } from './counterSlice';
 
-const CounterFeature = ({ }) => {
+const CounterFeature = () => {
     const counter = useSelector(state => state.counter);
     const dispatch = useDispatch();
     const hanleIncreaseClick = function () {
@@ -28,8 +27,5 @@ const CounterFeature = ({ }) => {
     )
 }
 
-CounterFeature.propTypes = {
-
-}
 
 export default CounterFeature

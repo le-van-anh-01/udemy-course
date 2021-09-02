@@ -4,7 +4,7 @@ import { TextField } from '@material-ui/core';
 import { Controller } from 'react-hook-form';
 
 const InputField = ({ form, name, label, disable }) => {
-    const { control, formState } = form;
+    const { control } = form;
 
     return (
         <Controller

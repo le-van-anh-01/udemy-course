@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Skeleton from '@material-ui/lab/Skeleton';
 import { Box, Typography } from '@material-ui/core';
 import { STATIC_HOST, THUMBNAIL_PLACEHOLDER } from 'constants/index';
 

@@ -13,7 +13,7 @@ const Login = ({ closeDialog }) => {
         try {
             const action = login(values);
             const resultAction = await dispatch(action);
-            const user = unwrapResult(resultAction);
+            unwrapResult(resultAction);
 
             if (closeDialog) {
                 closeDialog();

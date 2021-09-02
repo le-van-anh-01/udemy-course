@@ -12,7 +12,7 @@ import { useState } from 'react';
 import { FormHelperText } from '@material-ui/core';
 
 const PasswordField = ({ form, name, label, disable }) => {
-    const { control, formState } = form;
+    const { control } = form;
     const [showPassword, setShowPassword] = useState(false);
 
     const togglrShowPassword = function () {

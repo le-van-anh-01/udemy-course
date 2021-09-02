@@ -48,7 +48,8 @@ function FilterByCategory({ onChange }) {
     }, [])
 
     const handleCategoryClick = (category) => {
-        if (onChange) onChange(category.id);
+        if (!onChange) return;
+        onChange({ 'category.id': category.id });
     }
 
     return (

@@ -7,6 +7,7 @@ import productApi from './api/productApi';
 import CounterFeature from './features/Counter';
 import Header from './components/Header';
 import ProductFeature from 'features/Products/index';
+import CartFeature from 'features/Cart';
 // import moduleName from 'react-rou'
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path='/todos' component={TodoFeature} />
                 <Route path='/album' component={AlbumFeature} />
                 <Route path='/products' component={ProductFeature} />
+                <Route path='/cart' component={CartFeature} />
             </Switch>
         </Router>
     );

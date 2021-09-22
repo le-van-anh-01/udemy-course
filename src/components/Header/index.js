@@ -1,4 +1,4 @@
-import { AppBar, Button, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Badge, Button, Toolbar, Typography } from '@material-ui/core';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -15,6 +15,8 @@ import IconButton from '@material-ui/core/IconButton';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { logout } from 'features/Auth/userSlice';
+import { ShoppingBasket } from '@material-ui/icons';
+import { cartItemsCountSelector } from 'features/Cart/selectors';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -46,6 +48,8 @@ const Header = () => {
     const classes = useStyles();
     const [mode, setMode] = useState(MODE.LOGIN);
     const [open, setOpen] = useState(false);
+    const cartItemsCount = useSelector(cartItemsCountSelector);
+
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -87,6 +91,11 @@ const Header = () => {
                         <Button color="inherit">ALbum</Button>
                     </NavLink>
                     {!isLoggedIn && (<Button color="inherit" onClick={handleClickOpen}>Login</Button>)}
+                    <IconButton aria-label="show 11 new notifications" color="inherit">
+                        <Badge badgeContent={cartItemsCount} color="secondary">
+                            <ShoppingBasket />
+                        </Badge>
+                    </IconButton>
                     {isLoggedIn && (<IconButton color="inherit" onClick={handleUserClick} ><AccountCircleIcon /></IconButton>)}
                 </Toolbar>
             </AppBar>
